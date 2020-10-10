@@ -1,0 +1,146 @@
+<!--The HTML code is property to Mr. You (Kristiyan Valchev) and can only be viewed-->
+<!--If you want to use part of the code, please first contact me: mr.youdevelopment@gmail.com-->
+
+<html id = "html">
+    <head>
+        <link href = "https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel = "stylesheet">
+        <link type = "text/css" rel = "stylesheet" href = "Files/Style.css">
+        <link rel = "icon" href = "Images/Logo.png" type = "image" sizes = "16x16">
+
+        <meta charset = "utf-8">
+        <meta name = "description" content = "VOID е зала за виртуална реалност. Предлага VR игри и организация на рожден ден. Нов вид забавление подходящо за малки и големи.">
+        <meta name = "keywords" content = "Void, Ruse, Varna, Bulgaria, VR, Clube, Game, Gaming, Games, Fun, Birthday, Party, Русе, Варна, България, Клуб, Игри, Забава, Рожден, ден, Рожденни, Дни, Купон, Парти">
+        <meta name = "author" content = "Kristiyan Valchev">
+        <meta name = "viewport" content = "width = device-width, user-scalable = no, initial-scale = 1">
+        
+        <script type = "text/javascript" src = "Files/Functions.js"></script>
+        <script src = "https://kit.fontawesome.com/190623e0b3.js" crossorigin = "anonymous"></script>
+
+        <title>Void Русе</title>
+    </head>
+
+    <body id = "body">
+        <!-- #region Default -->
+        <img src = "Images/Logo.png" style = "display: none;">
+
+        <div class = "Loader">
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+        </div>
+
+        <script>
+            window.addEventListener("load", function ()
+			{
+				const Loader = document.querySelector(".Loader")
+				Loader.className += " hidden";
+            });
+
+            window.scroll(
+            {
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+		</script>
+        <!-- #endregion Default -->
+
+        <div class = "topBar">
+            <a href = "index.html" class = "Logo"><div><img src = "Images/Logo.png" alt = "Logo"></div></a>
+            <a href = "#">Играй</a>
+            <a href = "#">За нас</a>
+            <a href = "index.html" class = "Active">Начало</a>
+
+            <a onclick = "openSideMenu()" class = "threeLineButton">
+                <div></div>
+                <div></div>
+                <div></div>
+            </a>
+        </div>
+
+        <div class = "siteMenu" id = "sideMenu">
+            <a onclick = "closeSideMenu()" class = "closeButton">
+                <div></div>
+                <div></div>
+            </a>
+
+            <a href = "index.html" class = "Active"><div></div> Начало <div></div></a>
+            <a href = "#"><div></div> За нас <div></div></a>
+            <a href = "#"><div></div> Играй <div></div></a>
+        </div>
+
+        <div class = "mainBackgroundHolder">
+            <img src = "Images/mainInterior.png" alt = "Background image" class = "mainBackgroundImage">
+            <div class = "shapeOverlay"></div>
+        </div>
+
+        <img src = "Images/manWithVRSet.png" alt = "Man with VR Set" class = "mainFrontImage">
+
+        <div class = "mainTextHolder">
+            <h2 class = "subTitle">Изиграй скуката с</h2>
+            <h1 class = "mainTitle">VOID Games</h1>
+            <p class = "mainText">
+                Зала за виртуална реалност. Предлага VR игри и организация на рожден ден.
+                Нов вид забавление подходящо за малки и големи.
+            </p>
+        </div>
+        <a href = "#" class = "mainButton">Играй сега</a>
+        <a href = "#" class = "secondoryButton">Какво е</a>
+
+        <div class = "pageContent">
+            <div class = "Section">
+                <h1 class = "sectionTitle">Изиграй скуката</h1>
+                <p class = "sectionText">
+                    Разгледаите едни от най-популярните ни игри които имаме и
+                    изберете нещо по ваш вкус.
+                </p>
+
+                <div class = "sectionList">
+                    <div class = "listBlock">
+                        <div class = "listImageHolder"><img src = "Images/Games/beatSaber.png" alt = "Game image"></div>
+                        <p>Beat Saber</p>
+                    </div>
+
+                    <div class = "listBlock">
+                        <div class = "listImageHolder"><img src = "Images/Games/vaderImmortal.png" alt = "Game image"></div>
+                        <p>Vader Immortal</p>
+                    </div>
+
+                    <div class = "listBlock">
+                        <div class = "listImageHolder"><img src = "Images/Games/creedRiseToGlory.png" alt = "Game image"></div>
+                        <p>Creed Rise to Glory</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "Section Contacts">
+                <h1 class = "sectionTitle">Контакти</h1>
+                <p class = "sectionText">
+                    Обадете ни се за да си запазите час за игра. Можете да ни посетите
+                    Facebook страницатa или да ни пишете в Messenger.
+                </p>
+                <div class = "mainContactsList">
+                    <a href = "tel: #089 521 0519" class = "P"><i class = "fas fa-phone-alt"></i></a>
+                    <a href = "https://www.facebook.com/VoidVRruse" class = "F"  target = "_blank"><i class = "fab fa-facebook-f"></i></a>
+                    <a href = "https://www.facebook.com/messages/t/VoidVRruse" class = "M" target = "_blank"><i class = "fab fa-facebook-messenger"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class = "bottomBar">
+            <div class = "directionButton N"><a href = "index.html" class = "Active">Начало</a></div>
+            <div class = "directionButton Z"><a href = "#">За нас</a></div>
+            <div class = "directionButton M"><a href = "#">Играй</a></div>
+
+            <p class = "Credits">
+                <powerd>Site powered by <company>Mr. You Development</company>.</powerd>
+                <managed> Managed by <my>Kristiyan Valchecv</my></managed>
+            </p>
+        </div>
+    </body>
+</html>
