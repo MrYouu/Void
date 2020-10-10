@@ -1,0 +1,1404 @@
+/*The CSS code is property to Mr. You (Kristiyan Valchev) and can only be viewed*/
+/*If you want to use part of the code, please first contact me: mr.youdevelopment@gmail.com*/
+
+html
+{
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body
+{
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    background-color: #253036;
+    overflow-x: hidden;
+}
+
+/*#region Scrow bar */
+::-webkit-scrollbar
+{
+	width: 10px;
+}
+
+::-webkit-scrollbar-track
+{
+    background-color: #1c2125;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background: #607381; 
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+	background: #817460; 
+}
+/*#endregion Scrow bar */
+
+/*#region Loader */
+.Loader
+{
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #253036;
+	justify-content: center;
+	align-items: center;
+    overflow: hidden;
+    
+	z-index: 99;
+}
+
+.Loader img
+{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    mix-blend-mode: darken;
+    opacity: .3;
+    overflow: hidden;
+}
+
+.Loader.hidden
+{
+	animation: fadeOutt 1s;
+	animation-fill-mode: forwards;
+	overflow-y: visible;
+}
+
+@keyframes fadeOutt
+{
+	100%
+	{
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+.obj
+{
+	width: 15px;
+	height: 0px;
+	background: #e98f28;
+    border-radius: 10px;
+	margin: 0 3px;
+    
+	animation: Loader 0.8s infinite;
+}
+
+.obj:nth-child(2)
+{
+	animation-delay: 0.1s;
+}
+.obj:nth-child(3)
+{
+	animation-delay: 0.2s;
+}
+.obj:nth-child(4)
+{
+	animation-delay: 0.3s;
+}
+.obj:nth-child(5)
+{
+	animation-delay: 0.4s;
+}
+.obj:nth-child(6)
+{
+	animation-delay: 0.5s;
+}
+.obj:nth-child(7)
+{
+	animation-delay: 0.6s;
+}
+.obj:nth-child(8)
+{
+	animation-delay: 0.7s;
+}
+
+@keyframes Loader
+{
+	0%
+	{
+		height: 0;
+        background: #e98f28;
+	}
+	
+	50%
+	{
+		height: 80px;
+	}
+	
+	100%
+	{
+		height: 0;
+        background: #c76d06;
+	}
+}
+/*#endregion Loader */
+
+/*#region Top bar */
+.topBar
+{
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+
+    z-index: 30;
+
+    animation: dropDown .5s ease-out forwards .5s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.topBar a
+{
+    float: right;
+    position: relative;
+    top: calc(50% - 23px);
+    right: 60;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 26px;
+    color: #e3e3e3a0;
+    padding: 10px 25px;
+
+    animation: fadeIn .3s ease-out forwards .55s;
+    opacity: 0;
+}
+
+.topBar a::before
+{
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 3px;
+    bottom: -1px;
+    left: 5%;
+    background-color: #e3e3e3;
+    visibility: hidden;
+    transform: scaleX(0);
+    
+    transition: ease .3s;
+}
+
+.topBar a:hover::before
+{
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.topBar a.Logo
+{
+    position: absolute;
+    float: left;
+    width: 90px;
+    height: 60px;
+    top: calc(50% - 30px);
+    left: 60;
+    right: auto;
+    padding: 0;
+}
+
+.topBar a.Logo:hover::before
+{
+    visibility: hidden;
+}
+
+.topBar a.Logo div
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.topBar a.Logo div img
+{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.topBar a.Logo:hover
+{
+    filter: brightness(1.3);
+}
+
+.topBar a.Active
+{
+    color: #e3e3e3;
+}
+
+.topBar a.threeLineButton
+{
+    display: none;
+    float: right;
+    position: absolute;
+    width: 60px;
+    height: 32px;
+    right: 30;
+    padding: 0;
+}
+
+.topBar a.threeLineButton div
+{
+    float: right;
+    position: absolute;
+    height: 3px;
+    right: 0;
+    background-color: #e5e5e5;
+}
+
+.topBar a.threeLineButton div:nth-child(1)
+{
+    width: 100%;
+    top: 1;
+}
+
+.topBar a.threeLineButton div:nth-child(2)
+{
+    width: 50%;
+    top: calc(50% - .5px);
+}
+
+.topBar a.threeLineButton div:nth-child(3)
+{
+    width: 100%;
+    bottom: 0;
+}
+
+.topBar a.threeLineButton:hover div
+{
+    width: 100%;
+}
+
+.topBar a.threeLineButton:hover::before, .topBar div.hasDropdown .dropDownMenu a:hover::before
+{
+    visibility: hidden;
+}
+/*#endregion Top bar */
+
+/*#region Side menu */
+.siteMenu
+{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #253036;
+
+    z-index: 40;
+
+    transform: translateX(100%);
+}
+
+.siteMenu a.closeButton
+{
+    float: right;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 26;
+    left: auto;
+    right: 30;
+}
+
+.siteMenu a.closeButton div
+{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    top: calc(50% - 2px);
+    left: 0;
+    background-color: #e3e3e3;
+}
+
+.siteMenu a.closeButton div:nth-child(1)
+{
+    transform: rotate(45deg);
+}
+
+.siteMenu a.closeButton div:nth-child(2)
+{
+    transform: rotate(-45deg);
+}
+
+.siteMenu a.closeButton:hover div
+{
+    background-color: #e98f28;
+}
+
+.siteMenu a
+{
+    position: absolute;
+    width: 100%;
+    top: 120;
+    left: 0;
+    font-size: 26px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 26px;
+    color: #e3e3e3;
+}
+
+.siteMenu a:nth-child(3) { top: 180; }
+.siteMenu a:nth-child(4) { top: 240; }
+.siteMenu a:nth-child(5) { top: 300; }
+
+.siteMenu a:hover
+{
+    color: #e98f28;
+}
+
+.siteMenu a.Active
+{
+    font-weight: bold;
+}
+
+.siteMenu a.Active div:nth-child(1)
+{
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    top: calc(50% - 1px);
+    left: calc(50% - 130px);
+    background-color: #e98f28;
+}
+
+.siteMenu a.Active div:nth-child(2)
+{
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    top: calc(50% - 1px);
+    left: calc(50% + 90px);
+    background-color: #e98f28;
+}
+
+.siteMenu a.Active:hover div:nth-child(1)
+{
+    left: calc(50% - 140px);
+    background-color: #c76d06;
+}
+
+.siteMenu a.Active:hover div:nth-child(2)
+{
+    left: calc(50% + 100px);
+}
+/*#endregion Side menu */
+
+/*#region Main things */
+.mainBackgroundHolder
+{
+    position: absolute;
+    width: 100%;
+    height: 2000px;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.mainBackgroundHolder .mainBackgroundImage
+{
+    position: absolute;
+    width: 100%;
+    min-width: 1200px;
+    top: 0;
+    left: 0;
+}
+
+.mainBackground
+{
+    position: absolute;
+    width: 100%;
+    height: 900px;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #1c2125, #607381);
+    mix-blend-mode: multiply;
+    opacity: .7;
+}
+
+.mainBackgroundHolder .shapeOverlay
+{
+    float: right;
+    position: absolute;
+    width: 900px;
+    height: 1700px;
+    top: -400;
+    right: -100;
+    background-color: #e98f28;
+    mix-blend-mode: hard-light;
+    opacity: .7;
+
+    clip-path: polygon(0 50%, 100% 100%, 100% 0);
+    -webkit-clip-path: polygon(0 50%, 100% 100%, 100% 0);
+
+    animation: shapeOverlayAnimation .3s ease-out forwards .4s;
+    opacity: 0;
+}
+
+.mainFrontImage
+{
+    position: absolute;
+    width: 800px;
+    top: 120;
+    left: -50;
+}
+
+.mainTextHolder
+{
+    position: absolute;
+    width: 600px;
+    top: 240;
+    left: 800;
+}
+
+.subTitle
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #e3e3e380;
+
+    animation: dropDown .5s ease-out forwards .7s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.mainTitle
+{
+    position: absolute;
+    top: 40;
+    left: 0;
+    font-size: 70px;
+    font-weight: bold;
+    line-height: 70px;
+    color: #e3e3e3;
+
+    animation: dropDown .5s ease-out forwards .8s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.mainText
+{
+    position: absolute;
+    width: 500px;
+    top: 160;
+    left: 0;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 24px;
+    color: #e3e3e3a0;
+
+    animation: dropDown .5s ease-out forwards .9s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.mainButton
+{
+    float: right;
+    position: absolute;
+    top: 550;
+    right: 60;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #e3e3e3;
+    background-color: #111;
+    padding: 20px 30px;
+
+    animation: dropDown .5s ease-out forwards 1s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.secondoryButton
+{
+    float: right;
+    position: absolute;
+    top: 550;
+    right: 260;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #e3e3e3;
+    padding: 20px 30px;
+
+    animation: dropDown .5s ease-out forwards 1.05s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.mainButton:hover
+{
+    background-color: #111111bb;
+}
+
+.secondoryButton:hover
+{
+    background-color: #22222260;
+}
+/*#endregion Main things */
+
+/*#region Page content */
+.pageContent
+{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 900;
+    left: 0;
+    background-color: transparent;
+
+    z-index: 1;
+}
+
+.pageContent .Section
+{
+    position: relative;
+    width: calc(100% - 200px);
+    min-height: 600px;
+    left: 100;
+    background-color: transparent;
+    margin-top: 100px;
+
+    animation: dropDown .5s ease-out forwards 1.1s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .Section.Contacts
+{
+    min-height: 240px;
+    margin-bottom: 200px;
+}
+
+.pageContent .Section .sectionTitle
+{
+    position: relative;
+    width: calc(100% - 100px - 60px);
+    top: 25;
+    left: 130;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 36px;
+    color: #e3e3e3;
+
+    animation: dropDown .5s ease-out forwards 1.2s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .Section .sectionText
+{
+    position: relative;
+    width: calc(100% - 120px - 60px);
+    top: 64;
+    left: 120;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 22px;
+    color: #e3e3e3;
+
+    animation: dropDown .5s ease-out forwards 1.3s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .Section .sectionButton
+{
+    float: right;
+    position: absolute;
+    bottom: 60;
+    right: 60;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 22px;
+    color: #e3e3e3;
+    background-color: #e98f28;
+    padding: 10px 30px;
+
+    animation: dropDown .5s ease-out forwards 1.5s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .Section .sectionButton:hover
+{
+    background-color: #d87e17;
+    padding: 10px 40px;
+}
+
+.pageContent .Section .sectionList
+{
+    position: relative;
+    width: calc(100% - 120px + 100px);
+    height: 360px;
+    top: 80;
+    left: 120;
+    background-color: transparent;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    animation: dropDown .5s ease-out forwards 1.4s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .Section .sectionList::-webkit-scrollbar
+{
+    height: 5px;
+    width: 50%;
+}
+
+.pageContent .Section .sectionList .listBlock
+{
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 300px;
+    top: 0;
+    left: 0;
+    background-color: #e98f28;
+    margin-right: 10px;
+
+    animation: dropDown .5s ease-out forwards;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+/*#region Animation */
+.pageContent .Section .sectionList .listBlock:nth-child(1){ animation-delay: 1.45s; }
+.pageContent .Section .sectionList .listBlock:nth-child(2){ animation-delay: 1.5s; }
+.pageContent .Section .sectionList .listBlock:nth-child(3){ animation-delay: 1.55s; }
+.pageContent .Section .sectionList .listBlock:nth-child(4){ animation-delay: 1.6s; }
+.pageContent .Section .sectionList .listBlock:nth-child(5){ animation-delay: 1.65s; }
+.pageContent .Section .sectionList .listBlock:nth-child(6){ animation-delay: 1.7s; }
+.pageContent .Section .sectionList .listBlock:nth-child(7){ animation-delay: 1.75s; }
+.pageContent .Section .sectionList .listBlock:nth-child(8){ animation-delay: 1.8s; }
+.pageContent .Section .sectionList .listBlock:nth-child(9){ animation-delay: 1.85s; }
+.pageContent .Section .sectionList .listBlock:nth-child(10){ animation-delay: 1.9s; }
+.pageContent .Section .sectionList .listBlock:nth-child(11){ animation-delay: 1.95s; }
+.pageContent .Section .sectionList .listBlock:nth-child(12){ animation-delay: 2s; }
+/*#endregion Animation */
+
+.pageContent .Section .sectionList .listBlock:hover
+{
+    width: 210px;
+}
+
+.pageContent .Section .sectionList .listBlock .listImageHolder
+{
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.pageContent .Section .sectionList .listBlock .listImageHolder img
+{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.pageContent .Section .sectionList .listBlock .listImageHolder.whide img
+{
+    position: absolute;
+    width: auto;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.pageContent .Section .sectionList .listBlock p
+{
+    position: absolute;
+    width: 100%;
+    bottom: -30;
+    left: 0;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 20px;
+    color: #e3e3e3;
+}
+
+.pageContent .Section .mainContactsList
+{
+    position: relative;
+    width: calc(150px + 40px);
+    height: 50px;
+    top: 80;
+    left: 120;
+
+    animation: dropDown .5s ease-out forwards 1.4s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .Section .mainContactsList a
+{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    background-color: #e98f28;
+    border-radius: 999px;
+}
+
+.pageContent .Section .mainContactsList a:hover
+{
+    background-color: #d87e17;
+}
+
+.pageContent .Section .mainContactsList a i
+{
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 12px);
+    left: 0;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: #e3e3e3;
+}
+
+.pageContent .Section .mainContactsList a.F
+{
+    left: 70;
+}
+
+.pageContent .Section .mainContactsList a.M
+{
+    left: 140;
+}
+/*#endregion Page content */
+
+/*#region Bottom bar */
+.bottomBar
+{
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    top: 2100;
+    left: 0;
+    background-color: #1c2125;
+
+    z-index: 4;
+
+    animation: dropDown .5s ease-out forwards 1.5s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.bottomBar .directionButton
+{
+    position: absolute;
+    width: 33%;
+    height: 50px;
+    top: 60;
+    background-color: transparent;
+
+    animation: fadeIn .3s ease-out forwards 1.8s;
+    opacity: 0;
+}
+
+.bottomBar .directionButton.N
+{
+    left: 0;
+}
+
+.bottomBar .directionButton.Z
+{
+    left: 33%;
+}
+
+.bottomBar .directionButton.M
+{
+    left: 66%;
+}
+
+.bottomBar a
+{
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 18px);
+    left: 0;
+    font-size: 30px;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+    color: #e3e3e3;
+    opacity: .7;
+}
+
+.bottomBar a:hover
+{
+    color: #e98f28;
+    opacity: 1;
+}
+
+.bottomBar a.Active
+{
+    font-weight: bold;
+}
+
+.bottomBar .Credits
+{
+    position: absolute;
+    width: 100%;
+    top: auto;
+    bottom: 10;
+    text-align: center;
+    color: #e5e5e540;
+}
+
+.bottomBar .Credits powerd:hover company
+{
+    color: #61da7d;
+    transition: ease .3s;
+}
+
+.bottomBar .Credits managed:hover my
+{
+    color: #028bc2;
+    transition: ease .3s;
+}
+/*#endregion Bottom bar */
+
+img
+{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+a
+{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    transition: ease .3s;
+}
+
+p, div, h1, h2, h3, h4, h5, h6, i, img
+{
+    padding: 0;
+    margin: 0;
+    transition: ease .3s;
+}
+
+/*#region Animations */
+@keyframes shapeOverlayAnimation
+{
+    0%
+    {
+        clip-path: polygon(100% 0, 100% 100%, 100% 0);
+        -webkit-clip-path: polygon(100% 0, 100% 100%, 100% 0);
+        opacity: 0;
+    }
+
+    100%
+    {
+        clip-path: polygon(0 50%, 100% 100%, 100% 0);
+        -webkit-clip-path: polygon(0 50%, 100% 100%, 100% 0);
+        opacity: 1;
+    }
+}
+
+@keyframes popUp
+{
+    0%
+    {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    100%
+    {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes dropDown
+{
+    0%
+    {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100%
+    {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn
+{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOut
+{
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes defaultAnimation
+{
+    0%
+    {
+
+    }
+
+    100%
+    {
+
+    }
+}
+/*#endregion Animations */
+
+/*#region Media 1300-1000 */
+@media screen and (max-width: 1300px)
+{
+    .mainFrontImage
+    {
+        left: -150;
+    }
+
+    .mainTextHolder
+    {
+        left: 700;
+    }
+}
+
+@media screen and (max-width: 1200px)
+{
+    .mainFrontImage
+    {
+        top: 140;
+        left: -230;
+    }
+
+    .mainTextHolder
+    {
+        top: 150;
+        left: 500;
+    }
+}
+
+@media screen and (max-width: 1100px)
+{
+    .mainBackgroundHolder .shapeOverlay
+    {
+        right: -400;
+    }
+}
+
+@media screen and (max-width: 1000px)
+{
+    .mainFrontImage
+    {
+        float: right;
+        top: 220;
+        left: auto;
+        right: -300;
+        transform: scale(-1, 1);
+    }
+
+    .mainTextHolder
+    {
+        top: 200;
+        left: 60;
+    }
+
+    .mainButton
+    {
+        float: left;
+        top: 550;
+        left: 60;
+        right: auto;
+    }
+
+    .secondoryButton
+    {
+        float: left;
+        top: 550;
+        left: 260;
+        right: auto;
+    }
+
+    .mainButton:hover
+    {
+        background-color: #11111180;
+    }
+
+    .secondoryButton:hover
+    {
+        background-color: #eeeeee20;
+    }
+
+    .pageContent .Section
+    {
+        width: calc(100% - 60px);
+        left: 30;
+    }
+
+    .pageContent .Section .sectionList
+    {
+        width: calc(100% - 120px + 30px);
+    }
+}
+/*#endregion Media 1300-1000 */
+
+/*#region Media 900-800 */
+@media screen and (max-width: 900px)
+{
+    .mainFrontImage
+    {
+        width: 600px;
+        top: 450;
+        right: -100;
+    }
+
+    .mainButton, .secondoryButton
+    {
+        top: 500;
+    }
+
+    .pageContent
+    {
+        top: 1000;
+    }
+
+    .bottomBar
+    {
+        top: 2200;
+    }
+
+    .bottomBar a
+    {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 800px)
+{
+    .mainFrontImage
+    {
+        top: 580;
+    }
+
+    .pageContent
+    {
+        top: 1100;
+    }
+
+    .pageContent .Section.Contacts
+    {
+        margin-bottom: 100px;
+    }
+
+    .pageContent .Section .sectionTitle
+    {
+        width: calc(100% - 30px);
+        top: 50;
+        left: 15;
+    }
+
+    .pageContent .Section .sectionText
+    {
+        width: calc(100% - 30px);
+        top: 70;
+        left: 15;
+    }
+
+    .pageContent .Section .sectionList
+    {
+        width: calc(100% - 30px);
+        top: 100;
+        left: 15;
+    }
+
+    .pageContent .Section .sectionButton
+    {
+        float: left;
+        bottom: 15;
+        left: 15;
+        right: auto;
+    }
+
+    .pageContent .Section .mainContactsList
+    {
+        top: 90;
+        left: 15;
+    }
+
+    .bottomBar
+    {
+        top: 2300;
+    }
+
+    .bottomBar .Credits
+    {
+        width: calc(100% - 30px);
+        bottom: 10;
+        left: 15;
+        font-size: 12px;
+    }
+}
+/*#endregion Media 900-800 */
+
+/*#region Media 700-600 */
+@media screen and (max-width: 700px)
+{
+    .topBar a
+    {
+        display: none;
+    }
+
+    .topBar a.Logo, .topBar a.threeLineButton
+    {
+        display: unset;
+    }
+
+    .topBar a.Logo
+    {
+        width: 60px;
+        height: 60px;
+        top: calc(50% - 40px);
+        left: 30;
+    }
+
+    .mainTextHolder
+    {
+        width: calc(100% - 120px);
+        top: 160;
+    }
+
+    .mainButton
+    {
+        background-color: #e98f28;
+    }
+
+    .mainButton:hover
+    {
+        background-color: #e98f28c0;
+    }
+
+    .mainButton, .secondoryButton
+    {
+        top: 410;
+    }
+
+    .mainFrontImage
+    {
+        top: 540;
+    }
+
+    .subTitle
+    {
+        width: 100%;
+        font-size: 24px;
+        line-height: 24px;
+    }
+
+    .mainTitle
+    {
+        width: 100%;
+        font-size: 50px;
+        line-height: 50px;
+    }
+
+    .mainText
+    {
+        width: 100%;
+        top: 120;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+@media screen and (max-width: 600px)
+{
+    .mainBackgroundHolder .shapeOverlay
+    {
+        width: 500px;
+        height: 900px;
+        top: 200;
+        right: -70;
+    }
+
+    .pageContent .Section
+    {
+        width: 100%;
+        left: 0;
+    }
+
+    .pageContent .Section .sectionTitle, .pageContent .Section .sectionText
+    {
+        width: calc(100% - 60px);
+        left: 30;
+    }
+
+    .pageContent .Section .sectionList
+    {
+        width: calc(100% - 60px);
+        left: 30;
+    }
+
+    .pageContent .Section .sectionButton
+    {
+        left: 30;
+    }
+
+    .pageContent .Section .mainContactsList
+    {
+        left: 30;
+    }
+}
+/*#endregion Media 700-600 */
+
+/*#region Media 500-400 */
+@media screen and (max-width: 500px)
+{
+    .mainTextHolder
+    {
+        width: calc(100% - 60px);
+        left: 30;
+    }
+
+    .mainButton, .secondoryButton
+    {
+        top: 410;
+        padding: 16px 20px;
+        font-size: 16px;
+        line-height: 16px;
+    }
+
+    .mainButton
+    {
+        left: 30;
+    }
+
+    .secondoryButton
+    {
+        left: 170;
+    }
+
+    .mainFrontImage
+    {
+        width: 400px;
+        top: 480;
+    }
+
+    .pageContent
+    {
+        top: 800;
+    }
+
+    .pageContent .Section .sectionText
+    {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    /*#region Bottom bar */
+    .bottomBar
+    {
+        height: 200px;
+        top: 2000;
+    }
+
+    .bottomBar .directionButton
+    {
+        top: 30;
+        width: 100%;
+        height: 35px;
+    }
+
+    .bottomBar .directionButton.N, .bottomBar .directionButton.Z, .bottomBar .directionButton.M
+    {
+        left: 0;
+    }
+
+    .bottomBar .directionButton.Z
+    {
+        top: 70;
+    }
+
+    .bottomBar .directionButton.M
+    {
+        top: 110;
+    }
+    /*#endregion Bottom bar */
+}
+
+@media screen and (max-width: 400px)
+{
+    .subTitle
+    {
+        width: 100%;
+        font-size: 16px;
+        line-height: 16px;
+    }
+
+    .mainTitle
+    {
+        top: 25;
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    .mainText
+    {
+        top: 90;
+    }
+
+    .mainButton, .secondoryButton
+    {
+        top: 400;
+    }
+}
+/*#endregion Media 500-400 */
+
+/*#region Media 350 */
+@media screen and (max-width: 350px)
+{
+
+}
+/*#endregion Media 350 */
